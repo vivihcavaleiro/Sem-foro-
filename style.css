@@ -1,0 +1,136 @@
+/* --- Variáveis Globais de Design --- */
+:root {
+    --bg-main: #f8f9fa;
+    --bg-card: #ffffff;
+    --text-color: #212529;
+    --border-color: #dee2e6;
+    
+    /* Cores de Alto Contraste para Acessibilidade */
+    --color-verde: #137333;
+    --color-verde-bg: #e6f4ea;
+    --color-amarelo: #b06000;
+    --color-amarelo-bg: #fef7e0;
+    --color-vermelho: #c5221f;
+    --color-vermelho-bg: #fce8e6;
+
+    --font-stack: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* --- Reset Básico --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-color);
+    font-family: var(--font-stack);
+    line-height: 1.5;
+    padding-bottom: 2rem;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* --- Cabeçalho --- */
+.main-header {
+    background-color: var(--bg-card);
+    border-bottom: 1px solid var(--border-color);
+    text-align: center;
+    padding: 3rem 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.main-header h1 {
+    font-size: 2.2rem;
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
+}
+
+.main-header p {
+    font-size: 1.1rem;
+    color: #5f6368;
+}
+
+/* --- Seções do Semáforo --- */
+.semaforo-section {
+    margin-bottom: 3rem;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.semaforo-section h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Customização por Categoria */
+.status-verde { background-color: var(--color-verde-bg); }
+.status-verde h2 { color: var(--color-verde); }
+.status-verde .card { border-top: 5px solid var(--color-verde); }
+
+.status-amarelo { background-color: var(--color-amarelo-bg); }
+.status-amarelo h2 { color: var(--color-amarelo); }
+.status-amarelo .card { border-top: 5px solid var(--color-amarelo); }
+
+.status-vermelho { background-color: var(--color-vermelho-bg); }
+.status-vermelho h2 { color: var(--color-vermelho); }
+.status-vermelho .card { border-top: 5px solid var(--color-vermelho); }
+
+/* --- Grid de Cards (Mobile-First) --- */
+.cards-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+/* Componente Card */
+.card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+}
+
+.card h3 {
+    font-size: 1.2rem;
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #4a4a4a;
+}
+
+/* --- Rodapé --- */
+.main-footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    color: #5f6368;
+    border-top: 1px solid var(--border-color);
+    margin-top: 4rem;
+}
+
+/* --- 📱 RESPONSIVIDADE (Telas maiores) --- */
+@media (min-width: 650px) {
+    .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 950px) {
+    .cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
